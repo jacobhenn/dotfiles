@@ -17,6 +17,6 @@ export VISUAL=/bin/nvim
 
 # various aliases that will hopefully be replaced with automatic processes later
 alias workman-p="setxkbmap -v workman-p && xset r 66"
-alias x-setup="xmonad & && xmobar ~/.config/xmobar/xmobar.config &"
+alias x-start="xmonad &; xmobar ~/.config/xmobar/xmobar.config &; ~/.fehbg"
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME' 

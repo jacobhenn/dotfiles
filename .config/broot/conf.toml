@@ -135,8 +135,8 @@ leave_broot = false
 # uncomment the following bloc and start messing
 # with the various values.
 #
-# [skin]
-# default = "gray(23) none / gray(20) none"
+ [skin]
+ default = "gray(23) none / gray(20) none"
 # tree = "ansi(94) None / gray(3) None"
 # file = "gray(20) None / gray(15) None"
 # directory = "ansi(208) None Bold / ansi(172) None bold"
