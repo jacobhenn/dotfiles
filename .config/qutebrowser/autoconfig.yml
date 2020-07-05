@@ -6,5 +6,10 @@
 
 config_version: 2
 settings:
+  content.desktop_capture:
+    https://ucdavislaw.zoom.us: true
+  content.media_capture:
+    https://online-voice-recorder.com: true
+    https://ucdavislaw.zoom.us: true
   content.notifications:
     https://www.reddit.com: false

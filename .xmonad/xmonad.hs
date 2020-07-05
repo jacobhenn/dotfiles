@@ -247,8 +247,6 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-    -- load the workman keyboard layout
-    spawnOnce "setxkbmap -v workman-p && xset r 66"
     -- reload the background image
     spawnOnce "~/.fehbg"
     -- kill the old xmobar
@@ -257,6 +255,8 @@ myStartupHook = do
     spawnOnce "xmobar ~/.config/xmobar/xmobar.config &"
     -- load a compositor
     spawnOnce "picom &"
+    -- load the workman keyboard layout
+    spawnOnce "setxkbmap -v workman-p && xset r 66"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
