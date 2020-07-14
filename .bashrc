@@ -17,6 +17,15 @@ export VISUAL=/bin/nvim
 
 # various aliases that will hopefully be replaced with automatic processes later
 alias workman-p="setxkbmap -v workman-p && xset r 66"
-alias x-start="xmonad &; xmobar ~/.config/xmobar/xmobar.config &; ~/.fehbg"
 
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME' 
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+# prompt the user if they want to auto-start a graphical environment or drop back into the tty
+while true; do
+    read -p "Auto-start the graphical environment (y/n)? " yn
+    case $yn in
+        [Yy]* ) startx; break;;
+        [Nn]* ) echo "You are being dropped into a tty. Enter the graphical environment at any time by typing startx."; break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done

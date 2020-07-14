@@ -247,7 +247,7 @@ font:
   #   `- { index: 16, color: '#ff00ff' }`
   #
   #indexed_colors: []
-# NORD COLOR SCHEME
+# nord color scheme
 
 colors:
   primary:

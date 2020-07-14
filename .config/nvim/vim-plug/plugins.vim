@@ -6,15 +6,18 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
 
     " intellisense engine
-    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    
-    " one language pack to rule them all
-    Plug 'sheerun/vim-polyglot'	
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    " my choice of powerline clone 
+    " one language pack to rule them all
+    Plug 'sheerun/vim-polyglot'
+
+    " my choice of powerline clone
     Plug 'itchyny/lightline.vim'
 
     " the nord-vim colorscheme
     Plug 'arcticicestudio/nord-vim'
+
+    " Sophisticated Git integration
+    Plug 'tpope/vim-fugitive'
 
 call plug#end()

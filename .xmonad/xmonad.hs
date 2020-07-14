@@ -11,6 +11,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Actions.Navigation2D
 import XMonad.Layout.BinarySpacePartition
 
 import qualified XMonad.StackSet as W
@@ -62,7 +63,7 @@ myFocusedBorderColor = "#ffff00"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
@@ -71,7 +72,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm , xK_BackSpace     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
@@ -93,9 +94,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Move focus to the master window
     , ((modm,               xK_m     ), windows W.focusMaster  )
-
-    -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
@@ -166,7 +164,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
 
     -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
+    , ((modm .|. shiftMask, button1), (\w -> focus w >> mouseResizeWindow w
                                        >> windows W.shiftMaster))
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
@@ -247,14 +245,12 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-    -- reload the background image
-    spawnOnce "~/.fehbg"
-    -- kill the old xmobar
-    spawnOnce "pkill xmobar"
-    -- spawn a new xmobar
-    spawnOnce "xmobar ~/.config/xmobar/xmobar.config &"
     -- load a compositor
     spawnOnce "picom &"
+    -- reload the background image
+    spawnOnce "~/.fehbg &"
+    -- spawn xmobar
+    spawnOnce "xmobar ~/.config/xmobar/xmobar.config &"
     -- load the workman keyboard layout
     spawnOnce "setxkbmap -v workman-p && xset r 66"
 

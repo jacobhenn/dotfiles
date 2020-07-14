@@ -17,3 +17,21 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " set the colorscheme
 colorscheme nord
+
+" remove all trailing whitespace upon write
+autocmd BufWritePre * %s/\s\+$//e
+
+" capital W writes as well
+command W w
+
+" use tab for trigger completion
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getLine('.')[col - 1]  =~# '\s'
+endfunction
