@@ -130,6 +130,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+
+    -- screenshot
+    , ((modm              , xK_s     ), spawn "scrot '/home/jacob/images/scrots/%Y-%m-%d-%H%M%S_scrot.png'")
     ]
     ++
 
@@ -213,6 +216,7 @@ myLayout = avoidStruts (spacing 5 emptyBSP) ||| spacing 0 (noBorders Full)
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
+    , className =? "2D Minecraft"   --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
     , isFullscreen                  --> doFullFloat ]

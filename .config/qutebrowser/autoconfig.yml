@@ -11,6 +11,7 @@ settings:
   content.desktop_capture:
     https://ucdavislaw.zoom.us: true
   content.media_capture:
+    https://discord.com: false
     https://online-voice-recorder.com: true
     https://ucdavislaw.zoom.us: true
   content.notifications:
