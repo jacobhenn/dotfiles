@@ -20,4 +20,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Sophisticated Git integration
     Plug 'tpope/vim-fugitive'
 
+    " Markdown auto syntax styling
+    "Plug 'plasticboy/vim-markdown'
+
 call plug#end()

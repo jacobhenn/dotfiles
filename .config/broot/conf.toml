@@ -65,6 +65,20 @@ default_flags = "gh"
 # Example:
 #  execution = "/usr/bin/nvim {file}"
 [[verbs]]
+invocation = "! {command}"
+execution = "{command} {file}"
+
+[[verbs]]
+invocation = "!! {command}"
+execution = "{command}"
+
+[[verbs]]
+invocation = "gimp"
+shortcut = "gi"
+execution = "gimp {file}"
+leave_broot = true
+
+[[verbs]]
 invocation = "dragon"
 shortcut = "dr"
 execution = "dragon -a -x {file}"
@@ -77,7 +91,7 @@ execution = "$EDITOR {file}"
 leave_broot = false
 
 [[verbs]]
-invocation = "create {subpath}"
+invocation = "touch {subpath}"
 execution = "$EDITOR {directory}/{subpath}"
 leave_broot = false
 
