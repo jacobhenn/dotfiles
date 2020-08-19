@@ -256,6 +256,8 @@ myStartupHook = do
     spawnOnce "xmobar ~/.config/xmobar/xmobar.config &"
     -- spawn dunst
     spawnOnce "dunst &"
+    -- set the brightness
+    spawnOnce "light -S 15"
     -- load the workman keyboard layout
     spawnOnce "setxkbmap -v workman-p && xset r 66"
 

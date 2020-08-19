@@ -8,9 +8,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " intellisense engine
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    " one language pack to rule them all
-    Plug 'sheerun/vim-polyglot'
-
     " my choice of powerline clone
     Plug 'itchyny/lightline.vim'
 
@@ -22,5 +19,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Markdown auto syntax styling
     "Plug 'plasticboy/vim-markdown'
+
+    " Abbreviation jumping plugin
+    Plug 'easymotion/vim-easymotion'
+
+    " Plugin that lets you surround objects in delimeters
+    Plug 'tpope/vim-surround'
 
 call plug#end()

@@ -5,6 +5,9 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 " set the tabs to be four literal spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+" remove redundant mode display
+set noshowmode
+
 " set hybrid line numbering when in normal mode, and absolute numbering when
 " in insert mode or when the buffer loses focus
 :set number relativenumber
@@ -24,6 +27,12 @@ autocmd BufWritePre * %s/\s\+$//e
 " capital W writes as well
 command W w
 
+" format the entire file
+nnoremap == mqgg=G`q
+
+" save without quitting
+nnoremap ZX :w<CR>
+
 " use tab for trigger completion
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<C-n>" :
@@ -35,3 +44,22 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getLine('.')[col - 1]  =~# '\s'
 endfunction
+
+" toggle row and column highlighting
+nnoremap cc :set cursorline! cursorcolumn!<CR>
+
+" easymotion mappings
+
+let g:EasyMotion_do_mapping = 0
+
+map <Leader> <Plug>(easymotion-prefix)
+
+nmap s <Plug>(easymotion-overwin-f)
+
+let g:EasyMotion_smartcase = 1
+
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+map /  <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
