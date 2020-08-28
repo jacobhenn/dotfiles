@@ -6,12 +6,17 @@
 
 config_version: 2
 settings:
+  bindings.commands:
+    global:
+      normal:
+        '0': tab-close
   completion.shrink:
     global: true
   content.desktop_capture:
     https://ucdavislaw.zoom.us: true
   content.media_capture:
     https://discord.com: false
+    https://djusd.instructure.com: true
     https://online-voice-recorder.com: true
     https://ucdavislaw.zoom.us: true
   content.notifications:

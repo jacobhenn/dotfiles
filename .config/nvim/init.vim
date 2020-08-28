@@ -5,6 +5,9 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 " set the tabs to be four literal spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+" correct markdown highlighting
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+
 " remove redundant mode display
 set noshowmode
 
@@ -33,17 +36,31 @@ nnoremap == mqgg=G`q
 " save without quitting
 nnoremap ZX :w<CR>
 
-" use tab for trigger completion
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" normal c-back behavior
+inoremap <C-e> <ESC>bce
 
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getLine('.')[col - 1]  =~# '\s'
-endfunction
+" <;> doesn't do anything anyway
+map ; :
+
+" vim-checklist keybindings
+nnoremap <leader>ct :ChecklistToggleCheckbox<cr>
+nnoremap <leader>ce :ChecklistEnableCheckbox<cr>
+nnoremap <leader>cd :ChecklistDisableCheckbox<cr>
+vnoremap <leader>ct :ChecklistToggleCheckbox<cr>
+vnoremap <leader>ce :ChecklistEnableCheckbox<cr>
+vnoremap <leader>cd :ChecklistDisableCheckbox<cr>
+
+" use tab for trigger completion
+" inoremap <silent><expr> <TAB>
+"     \ pumvisible() ? "\<C-n>" :
+"     \ <SID>check_back_space() ? "\<TAB>" :
+"     \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+" function! s:check_back_space() abort
+"     let col = col('.') - 1
+"     return !col || getLine('.')[col - 1]  =~# '\s'
+" endfunction
 
 " toggle row and column highlighting
 nnoremap cc :set cursorline! cursorcolumn!<CR>
