@@ -8,6 +8,9 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " correct markdown highlighting
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 
+" activate the autosave plugin
+let g:auto_save = 1
+
 " remove redundant mode display
 set noshowmode
 
@@ -23,12 +26,6 @@ set noshowmode
 
 " set the colorscheme
 colorscheme nord
-
-" remove all trailing whitespace upon write
-autocmd BufWritePre * %s/\s\+$//e
-
-" capital W writes as well
-command W w
 
 " format the entire file
 nnoremap == mqgg=G`q

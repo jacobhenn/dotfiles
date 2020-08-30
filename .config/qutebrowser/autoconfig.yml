@@ -21,6 +21,8 @@ settings:
     https://ucdavislaw.zoom.us: true
   content.notifications:
     https://discord.com: true
+    https://www.duolingo.com: false
+    https://www.pcmag.com: false
     https://www.reddit.com: false
   content.pdfjs:
     global: false

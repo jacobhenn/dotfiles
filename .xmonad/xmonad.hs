@@ -6,6 +6,7 @@ import XMonad
 import Data.Monoid
 import System.Exit
 import XMonad.Util.Run
+import XMonad.Config.Prime
 import XMonad.Layout.Spacing
 import XMonad.Util.SpawnOnce
 import XMonad.Layout.NoBorders
@@ -54,8 +55,8 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#2e3440"
-myFocusedBorderColor = "#ffff00"
+myNormalBorderColor  = "#2e3440" -- 
+myFocusedBorderColor = "#ffff00" -- ffff00
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -102,10 +103,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
     -- Shrink the master area
-    , ((modm,               xK_h     ), sendMessage Shrink)
+    , ((modm,               xK_h     ), sendMessage $ ExpandTowards L )
 
     -- Expand the master area
-    , ((modm,               xK_l     ), sendMessage Expand)
+    , ((modm,               xK_l     ), sendMessage $ ExpandTowards R )
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)

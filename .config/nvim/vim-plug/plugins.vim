@@ -34,4 +34,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " checklist program - BECOMES OBSOLETE WITH VIMWIKI
     Plug 'evansalter/vim-checklist'
 
+    " save changes on switch to normal mode
+    Plug '907th/vim-auto-save'
+
 call plug#end()
