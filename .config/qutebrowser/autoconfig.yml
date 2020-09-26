@@ -6,29 +6,5 @@
 
 config_version: 2
 settings:
-  bindings.commands:
-    global:
-      normal:
-        '0': tab-close
-  completion.shrink:
-    global: true
-  content.desktop_capture:
-    https://ucdavislaw.zoom.us: true
-  content.media_capture:
-    https://discord.com: false
-    https://djusd.instructure.com: true
-    https://online-voice-recorder.com: true
-    https://ucdavislaw.zoom.us: true
   content.notifications:
-    https://discord.com: true
-    https://www.duolingo.com: false
-    https://www.pcmag.com: false
     https://www.reddit.com: false
-  content.pdfjs:
-    global: false
-  downloads.location.directory:
-    global: /home/jacob/downloads
-  fonts.default_family:
-    global: Fira Code
-  fonts.default_size:
-    global: 10pt

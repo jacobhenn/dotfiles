@@ -75,8 +75,13 @@ execution = "{command}"
 [[verbs]]
 invocation = "gimp"
 shortcut = "gi"
-execution = "gimp {file}"
+execution = "sw gimp {file}"
 leave_broot = true
+
+[[verbs]]
+invocation = "darktable"
+shortcut = "dt"
+execution = "sw darktable {file}"
 
 [[verbs]]
 invocation = "dragon"
@@ -87,7 +92,7 @@ execution = "dragon -a -x {file}"
 invocation = "edit"
 key = "F2"
 shortcut = "e"
-execution = "$EDITOR {file}"
+execution = "sw neovide {file}"
 leave_broot = false
 
 [[verbs]]

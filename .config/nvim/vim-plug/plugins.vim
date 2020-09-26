@@ -7,9 +7,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " automatically type matching brackets
     Plug 'jiangmiao/auto-pairs'
 
-    " intellisense engine
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
     " my choice of powerline clone
     Plug 'itchyny/lightline.vim'
 
@@ -25,9 +22,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plugin that lets you surround objects in delimeters
     Plug 'tpope/vim-surround'
 
-    " Fast colorizer
-    Plug 'norcalli/nvim-colorizer.lua'
-
     " incredibly cool table formatter
     Plug 'dhruvasagar/vim-table-mode'
 
@@ -36,5 +30,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " save changes on switch to normal mode
     Plug '907th/vim-auto-save'
+
+    " auto hex coloring
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+    " easy commenting
+    Plug 'tpope/vim-commentary'
 
 call plug#end()

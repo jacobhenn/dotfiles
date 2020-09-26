@@ -14,4 +14,8 @@ abbr -a -g brick ghc --make -O2 -optc-O3 -dynamic -threaded
 abbr -a -g hscomp ghc --make -O2 -optc-O3 -dynamic -fwarn-missing-signatures
 abbr -a -g pathadd set -Ua fish_user_paths
 abbr -a -g pathdel set --erase --universal fish_user_paths[1]
-abbr -a -g e nvim
+abbr -a -g schedule sw neovide ~/school/schedule.txt
+abbr -a -g e sw neovide
+abbr -a -g off systemctl poweroff
+
+alias dmenu-colors="dmenu -fn Fira\ Code:pixelsize=14:antialias=true -nb black -nf rgb:a0/a0/a0 -sb yellow -sf black"

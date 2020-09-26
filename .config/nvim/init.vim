@@ -1,9 +1,28 @@
-" comment
-
 source $HOME/.config/nvim/vim-plug/plugins.vim
+
+" GUI settings
+let g:neovide_transparency = 0.9
+let g:neovide_cursor_animation_length=0.05 
+set guifont=firacode:h16
+set nowrap
+
+" terminal settings
+au termOpen * setlocal nonumber
+tnoremap <Esc> <C-\><C-n>
+
+" automatically change the working directory based on the file being worked
+" with
+autocmd BufEnter * silent! lcd %:p:h
+
+" remove the stupid leader key timeout
+set noto
+set ttimeout
 
 " set the tabs to be four literal spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+" better colour suppourt
+set termguicolors
 
 " correct markdown highlighting
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
@@ -14,27 +33,23 @@ let g:auto_save = 1
 " remove redundant mode display
 set noshowmode
 
-" set hybrid line numbering when in normal mode, and absolute numbering when
-" in insert mode or when the buffer loses focus
-:set number relativenumber
-
-:augroup numbertoggle
-:       autocmd!
-:       autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:       autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
+" set absolute numbering when
+set number
 
 " set the colorscheme
 colorscheme nord
 
 " format the entire file
-nnoremap == mqgg=G`q
+nnoremap == mqgg=G`qzz
 
 " save without quitting
 nnoremap ZX :w<CR>
 
-" normal c-back behavior
-inoremap <C-e> <ESC>bce
+" launch ghci in cabal or non-cabal mode
+nnoremap g. :split\|resize -10\|terminal cabal repl<Enter>
+
+" normal C-Backspace behavior
+imap <m-h> <C-w>
 
 " <;> doesn't do anything anyway
 map ; :
@@ -46,18 +61,6 @@ nnoremap <leader>cd :ChecklistDisableCheckbox<cr>
 vnoremap <leader>ct :ChecklistToggleCheckbox<cr>
 vnoremap <leader>ce :ChecklistEnableCheckbox<cr>
 vnoremap <leader>cd :ChecklistDisableCheckbox<cr>
-
-" use tab for trigger completion
-" inoremap <silent><expr> <TAB>
-"     \ pumvisible() ? "\<C-n>" :
-"     \ <SID>check_back_space() ? "\<TAB>" :
-"     \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"
-" function! s:check_back_space() abort
-"     let col = col('.') - 1
-"     return !col || getLine('.')[col - 1]  =~# '\s'
-" endfunction
 
 " toggle row and column highlighting
 nnoremap cc :set cursorline! cursorcolumn!<CR>
@@ -74,6 +77,3 @@ let g:EasyMotion_smartcase = 1
 
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-map /  <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)

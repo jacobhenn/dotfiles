@@ -15,8 +15,14 @@ source /home/jacob/.config/broot/launcher/bash/br
 export EDITOR=/bin/nvim
 export VISUAL=/bin/nvim
 
+# add local binaries to path
+export PATH=/home/jacob/.local/bin:$PATH
+
+# i want fish not bash
+export SHELL=/bin/fish
+
 # various aliases that will hopefully be replaced with automatic processes later
-alias workman-p="setxkbmap -v workman-p && xset r 66"
+alias workman-p='sudo loadkeys /usr/local/share/kbd/keymaps/workman-p.iso15.kmap'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
