@@ -6,5 +6,25 @@
 
 config_version: 2
 settings:
-  content.notifications:
-    https://www.reddit.com: false
+  bindings.commands:
+    global:
+      normal:
+        '0': tab-close
+  content.pdfjs:
+    global: true
+  fonts.default_family:
+    global: Fira Code
+  fonts.prompts:
+    global: default_size default_family
+  scrolling.smooth:
+    global: true
+  statusbar.show:
+    global: in-mode
+  tabs.show:
+    global: switching
+  tabs.show_switching_delay:
+    global: 2000
+  url.default_page:
+    global: https://picsum.photos/1920/1080
+  url.start_pages:
+    global: https://picsum.photos/1920/1080
