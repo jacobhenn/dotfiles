@@ -1,0 +1,44 @@
+# Plugin manager
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+# General UI options
+addhl global/ number-lines                  # line numbers
+addhl global/ wrap                          # line wrapping
+set global ui_options ncurses-assistant=off # plain autoinfo windows
+set global autoinfo command                 # only give autoinfo on commands
+set global tabstop 4
+colorscheme nord                            # nord colorscheme
+
+# User mappings
+map global user , :wq<ret>           -docstring "write and quit"
+map global user w :w<ret>            -docstring "write without quitting"
+map global user q :q!<ret>           -docstring "quit without writing"
+map global user c :comment-line<ret> -docstring "toggle line comments"
+
+# Remappings
+map global insert <tab> <space><space><space><space>
+
+# Save-related things
+hook global InsertKey <esc> write
+set global autoreload yes
+
+# Plugins ----------------------------------------------------------------------
+
+# Allows shell commands to properly be escaped
+plug "alexherbo2/prelude.kak"
+
+# Automatic pairing of delimiters
+plug "alexherbo2/auto-pairs.kak"
+require-module auto-pairs
+auto-pairs-enable
+
+# allows vim-like continuous replace mode
+plug "alexherbo2/replace-mode.kak"
+require-module replace-mode
+map global user r :enter-replace-mode<ret> -docstring "Enter replace mode"
+
+# easy motion
+plug "danr/kakoune-easymotion"
+map global normal f :easy-motion-char<ret>
+
+# End plugins ------------------------------------------------------------------
